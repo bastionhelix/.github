@@ -1,7 +1,7 @@
 # Bastion Helix Information Security Policy
 
-**Version:** 1.0
-**Adopted:** 19 October 2026
+**Version:** 1.1
+**Adopted:** 19 October 2026 (version 1.1: 20 October 2026, adds section 20 on AI)
 **Approved by:** the Owner of Bastion Helix
 **Next review due:** October 2027 (see section 18)
 
@@ -12,6 +12,7 @@ Related documents:
 - [Incident Response Plan](INCIDENT_RESPONSE.md)
 - [Privacy Policy](https://bastionhelix.com/privacy)
 - [Data Processing Addendum](https://bastionhelix.com/dpa)
+- [Agent Lens acceptable use policy](https://bastionhelix.com/lens/acceptable-use)
 
 ---
 
@@ -213,13 +214,35 @@ Security advisories from our platforms and from GitHub are followed throughout t
 - [ ] Review the business continuity analysis (section 13).
 - [ ] Review the legal requirements (section 4), the contacts in Appendix D and the API security of each product.
 - [ ] Do the security knowledge refresh (section 17).
-- [ ] Update the CAIQ answers.
+- [ ] Review section 20 (AI) and the Agent Lens acceptable use policy against new AI risks, laws and platform rules.
+- [ ] Update the CAIQ and AI-CAIQ answers.
 
 ## 19. Exceptions
 
 Any departure from this policy is recorded in the risk register with a reason and a plan to close it. Open exceptions at adoption:
 - **Two-factor authentication on the company Google account** is not yet on. Google's own verification step currently blocks it. We will retry until it is on.
 - **Separation of duties** isn't possible with one person. This is compensated by the controls in section 7.
+
+## 20. AI: how we use it and how our products serve it
+
+### 20.1 Using AI tools in our own work
+We use AI assistants (for example, for coding, writing and research). When we do:
+- **Never share secrets or protected data** with an AI tool: no passwords, API keys, tokens or recovery codes; no customer data or personal data; and no information from any other employer.
+- **A human is responsible for every result.** The Owner reviews AI-written code, text and answers, and code only ships after the automated tests and checks in section 8.2 pass.
+- **Every claim is checked.** Anything an AI tool states about our products, laws, prices or other facts is checked against the product or a primary source before it is published (section 8.1).
+- **Least access for AI agents.** An AI agent working for us gets only the access its task needs. It never holds production secrets, and deploys and other changes outside its workspace are approved by the Owner.
+- **Reputable tools only.** We use AI tools from established providers under their published terms, and prefer settings that do not use our inputs for training where the provider offers them.
+
+### 20.2 Products used by AI agents
+Some of our products, such as the Agent Lens API, are built to be called by AI agents. For these products:
+- The service enforces guardrails in code: it obeys robots.txt, refuses pages whose Content Signals disallow AI input, never bypasses bot or human checks, never signs in, and is read-only.
+- Customers and their agents must follow the [Agent Lens acceptable use policy](https://bastionhelix.com/lens/acceptable-use). We may disable an API key that breaks it.
+- Content returned from web pages is untrusted. Our documentation tells agents to treat it as data, never as instructions.
+- Reports of misuse go to support@bastionhelix.com and are handled within 5 business days. Serious misuse is handled as a security incident (section 12).
+- We do not train, fine-tune or host AI models. If that changes, this section will be extended before launch.
+
+### 20.3 Review
+This section and the acceptable use policy are reviewed at least once a year (section 18), and whenever a new AI product, law or platform rule affects them.
 
 ---
 
